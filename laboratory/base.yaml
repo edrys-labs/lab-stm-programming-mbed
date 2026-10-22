@@ -302,12 +302,14 @@ modules:
     showInCustom: station
     width: half
     height: tall
-  - url: https://edrys-labs.github.io/module-editor/index.html
+  - url: https://edrys-labs.github.io/module-monaco-editor/
     config:
+      synchronize: true
+      showLanguageSelector: true
       runCommand: execute
-      language: python
-      theme: light
-      editorText: |-
+      language: cpp
+      theme: vs-light
+      value: |-
         #include "mbed.h"
 
         #define BLINKING_RATE  500 //ms
@@ -348,7 +350,7 @@ modules:
     showInCustom: station
     width: full
     height: tall
-  - url: https://edrys-labs.github.io/module-station-stream/index.html
+  - url: https://edrys-labs.github.io/module-streaming/index.html
     stationConfig:
       video: true
       audio: false
