@@ -250,21 +250,29 @@ modules:
 
 
         ```bash
+
+        # build the image once, from https://github.com/edrys-labs/lab-stm32
+
+        git clone https://github.com/edrys-labs/lab-stm32
+
+        docker build -t edrys-stm-lab lab-stm32
+
+
         docker run -it --privileged \
           --name edrys_arm_development \
-          -p 5000:5000 \
+          -p 127.0.0.1:5000:5000 \
           -e PYXTERM_CMD=zsh \
           --device /dev/ttyACM0 \
           -v /media/$USER/DIS_L4IOT:/media/appuser/DIS_L4IOT \
           -v /dev/disk/by-id:/dev/disk/by-id \
           -v /dev/serial/by-id:/dev/serial/by-id \
           -v /run/udev:/run/udev:ro \
-          crosslab/edrys_pyxtermjs_stm:latest
+          edrys-stm-lab
         ```
 
 
-        This will download the pyxtermjs terminal-server from docker-hub and run
-        it in a secure environment.
+        This builds the pyxtermjs terminal-server with the STM tools and runs
+        it in a container.
 
         ### Using Python
 

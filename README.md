@@ -4,23 +4,30 @@ HelloWorld Lab in C and C++ (STM HAL, mbed) ...
 
 ![screenshot](./media/demo.png)
 
-In order to run this lab, you will need to run docker and the following command on the computer that is running in station mode.
-This will install the pyxtermjs server and the necessary tools to program the STM32 board.
+In order to run this lab, you will need docker on the computer that is running in station mode.
+The image with the pyxtermjs server and the tools to program the STM32 board is built from the Dockerfile in [lab-stm32](https://github.com/edrys-labs/lab-stm32), once:
+
+```bash
+git clone https://github.com/edrys-labs/lab-stm32
+docker build -t edrys-stm-lab lab-stm32
+```
+
+Then start it:
 
 ``` bash
 docker run -it --privileged \
     --name edrys_arm_development \
-    -p 5000:5000 \
+    -p 127.0.0.1:5000:5000 \
     -e PYXTERM_CMD=zsh \
     --device /dev/ttyACM0 \
     -v /media/$USER/DIS_L4IOT:/media/appuser/DIS_L4IOT \
     -v /dev/disk/by-id:/dev/disk/by-id \
     -v /dev/serial/by-id:/dev/serial/by-id \
     -v /run/udev:/run/udev:ro \
-    crosslab/edrys_pyxtermjs_stm:latest
+    edrys-stm-lab
 ```
 
-As an alterniative, you can also run the terminal server manually from your machine by using Python.
+As an alternative, you can also run the terminal server manually from your machine by using Python.
 For more information on this, please visit:
 
 https://github.com/edrys-labs/module-pyxtermjs
