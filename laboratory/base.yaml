@@ -1,10 +1,7 @@
-id: p4mG8UQd3ozMCs4NEqsgLjME8hL7jN40mgr6PyIS
-createdBy: 15sg55Ga16CT
 dateCreated: 1689064662293
 name: STM Programming mbed
 meta:
-  logo: >-
-    https://global.discourse-cdn.com/business7/uploads/ros/original/2X/2/26a69f2033d48e6099e82d162917b2463ed65fce.jpeg
+  logo: ''
   description: Implementation of a HelloWorld example in C and C++ (STM HAL, mbed)
   selfAssign: true
 members:
